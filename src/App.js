@@ -1,6 +1,6 @@
 import "./App.css";
 import News from "./components/News";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { Component } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -8,16 +8,135 @@ import Footer from "./components/Footer";
 export default class App extends Component {
 	render() {
 		return (
-			<div>
-				<NavBar />
-				<News
-					pageSize={6}
-					apiKey={"d0c5255364ee4e06a074b4985d1c2385"}
-					keyword={"computer"}
-					language={"en"}
-				/>
-				<Footer />
-			</div>
+			<Router>
+				<div>
+					<NavBar />
+					<Routes>
+						<Route
+							exact
+							path="/"
+							caseSensitive={false}
+							element={
+								<News
+									key="general"
+									pageSize={6}
+									apiKey="d0c5255364ee4e06a074b4985d1c2385"
+									category="general"
+									language="en"
+									country="us"
+								/>
+							}
+						/>
+						<Route
+							exact
+							path="/general"
+							caseSensitive={false}
+							element={
+								<News
+									key="general"
+									pageSize={6}
+									apiKey="d0c5255364ee4e06a074b4985d1c2385"
+									category="general"
+									language="en"
+									country="us"
+								/>
+							}
+						/>
+						<Route
+							exact
+							path="/science"
+							caseSensitive={false}
+							element={
+								<News
+									key="science"
+									pageSize={6}
+									apiKey="d0c5255364ee4e06a074b4985d1c2385"
+									category="science"
+									language="en"
+									country="us"
+								/>
+							}
+						/>
+						<Route
+							exact
+							path="/business"
+							caseSensitive={false}
+							element={
+								<News
+									key="business"
+									pageSize={6}
+									apiKey="d0c5255364ee4e06a074b4985d1c2385"
+									category="business"
+									language="en"
+									country="us"
+								/>
+							}
+						/>
+						<Route
+							exact
+							path="/entertainment"
+							caseSensitive={false}
+							element={
+								<News
+									key="entertainment"
+									pageSize={6}
+									apiKey="d0c5255364ee4e06a074b4985d1c2385"
+									category="entertainment"
+									language="en"
+									country="us"
+								/>
+							}
+						/>
+						<Route
+							exact
+							path="/health"
+							caseSensitive={false}
+							element={
+								<News
+									key="health"
+									pageSize={6}
+									apiKey="d0c5255364ee4e06a074b4985d1c2385"
+									category="health"
+									language="en"
+									country="us"
+								/>
+							}
+						/>
+						<Route
+							exact
+							path="/sports"
+							caseSensitive={false}
+							element={
+								<News
+									key="sports"
+									pageSize={6}
+									apiKey="d0c5255364ee4e06a074b4985d1c2385"
+									category="sports"
+									language="en"
+									country="us"
+								/>
+							}
+						/>
+						<Route
+							exact
+							path="/technology"
+							caseSensitive={false}
+							element={
+								<News
+									key="technology"
+									pageSize={6}
+									apiKey="d0c5255364ee4e06a074b4985d1c2385"
+									category="technology"
+									language="en"
+									country="us"
+								/>
+							}
+						/>
+					</Routes>
+
+					<Footer />
+				</div>
+			</Router>
 		);
 	}
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import icon from "../infinity-icon.png";
 
 export default class NavBar extends Component {
 	render() {
@@ -8,12 +9,21 @@ export default class NavBar extends Component {
 					<div className="container-fluid">
 						<a className="navbar-brand" href="/" style={{ fontWeight: "700" }}>
 							<img
-								src="https://cdn2.iconfinder.com/data/icons/flat-ui-free/200/Infinity-Loop.png"
+								src={icon}
 								alt="infinity logo"
 								style={{ width: "40px" }}
 								className="mx-2"
 							/>
-							Infinity News
+							Infinity
+							<span
+								style={{
+									background:
+										"linear-gradient(315deg, #fc9842 0%, #fe5f75 74%)",
+								}}
+								className="mx-2 p-1"
+							>
+								News
+							</span>
 						</a>
 						<button
 							className="navbar-toggler"
@@ -34,8 +44,38 @@ export default class NavBar extends Component {
 									</a>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link" href="/about">
-										About
+									<a className="nav-link" href="/business">
+										Business
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="/entertainment">
+										Entertainment
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="/general">
+										General
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="/health">
+										Health
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="/science">
+										Science
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="/sports">
+										Sports
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="/technology">
+										Technology
 									</a>
 								</li>
 							</ul>
