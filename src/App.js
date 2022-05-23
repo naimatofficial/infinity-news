@@ -1,142 +1,156 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
 import News from "./components/News";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { Component } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import LoadingBar from "react-top-loading-bar";
 
-export default class App extends Component {
-	render() {
-		return (
-			<Router>
-				<div>
-					<NavBar />
-					<Routes>
-						<Route
-							exact
-							path="/"
-							caseSensitive={false}
-							element={
-								<News
-									key="general"
-									pageSize={6}
-									apiKey="d0c5255364ee4e06a074b4985d1c2385"
-									category="general"
-									language="en"
-									country="us"
-								/>
-							}
-						/>
-						<Route
-							exact
-							path="/general"
-							caseSensitive={false}
-							element={
-								<News
-									key="general"
-									pageSize={6}
-									apiKey="d0c5255364ee4e06a074b4985d1c2385"
-									category="general"
-									language="en"
-									country="us"
-								/>
-							}
-						/>
-						<Route
-							exact
-							path="/science"
-							caseSensitive={false}
-							element={
-								<News
-									key="science"
-									pageSize={6}
-									apiKey="d0c5255364ee4e06a074b4985d1c2385"
-									category="science"
-									language="en"
-									country="us"
-								/>
-							}
-						/>
-						<Route
-							exact
-							path="/business"
-							caseSensitive={false}
-							element={
-								<News
-									key="business"
-									pageSize={6}
-									apiKey="d0c5255364ee4e06a074b4985d1c2385"
-									category="business"
-									language="en"
-									country="us"
-								/>
-							}
-						/>
-						<Route
-							exact
-							path="/entertainment"
-							caseSensitive={false}
-							element={
-								<News
-									key="entertainment"
-									pageSize={6}
-									apiKey="d0c5255364ee4e06a074b4985d1c2385"
-									category="entertainment"
-									language="en"
-									country="us"
-								/>
-							}
-						/>
-						<Route
-							exact
-							path="/health"
-							caseSensitive={false}
-							element={
-								<News
-									key="health"
-									pageSize={6}
-									apiKey="d0c5255364ee4e06a074b4985d1c2385"
-									category="health"
-									language="en"
-									country="us"
-								/>
-							}
-						/>
-						<Route
-							exact
-							path="/sports"
-							caseSensitive={false}
-							element={
-								<News
-									key="sports"
-									pageSize={6}
-									apiKey="d0c5255364ee4e06a074b4985d1c2385"
-									category="sports"
-									language="en"
-									country="us"
-								/>
-							}
-						/>
-						<Route
-							exact
-							path="/technology"
-							caseSensitive={false}
-							element={
-								<News
-									key="technology"
-									pageSize={6}
-									apiKey="d0c5255364ee4e06a074b4985d1c2385"
-									category="technology"
-									language="en"
-									country="us"
-								/>
-							}
-						/>
-					</Routes>
+const App = () => {
+	const apiKey = process.env.REACT_APP_NEWS_API;
+	const pageSize = 9;
+	const [progress, setProgress] = useState(0);
 
-					<Footer />
-				</div>
-			</Router>
-		);
-	}
-}
+	return (
+		<BrowserRouter>
+			<div>
+				<NavBar />
+				<LoadingBar color="#f11946" progress={progress} />
+				<Routes>
+					<Route
+						exact
+						path="/"
+						caseSensitive={false}
+						element={
+							<News
+								setProgress={setProgress}
+								key="general"
+								pageSize={pageSize}
+								apiKey={apiKey}
+								category="general"
+								language="en"
+								country="us"
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/general"
+						caseSensitive={false}
+						element={
+							<News
+								setProgress={setProgress}
+								key="general"
+								pageSize={pageSize}
+								apiKey={apiKey}
+								category="general"
+								language="en"
+								country="us"
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/science"
+						caseSensitive={false}
+						element={
+							<News
+								setProgress={setProgress}
+								key="science"
+								pageSize={pageSize}
+								apiKey={apiKey}
+								category="science"
+								language="en"
+								country="us"
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/business"
+						caseSensitive={false}
+						element={
+							<News
+								setProgress={setProgress}
+								key="business"
+								pageSize={pageSize}
+								apiKey={apiKey}
+								category="business"
+								language="en"
+								country="us"
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/entertainment"
+						caseSensitive={false}
+						element={
+							<News
+								setProgress={setProgress}
+								key="entertainment"
+								pageSize={pageSize}
+								apiKey={apiKey}
+								category="entertainment"
+								language="en"
+								country="us"
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/health"
+						caseSensitive={false}
+						element={
+							<News
+								setProgress={setProgress}
+								key="health"
+								pageSize={pageSize}
+								apiKey={apiKey}
+								category="health"
+								language="en"
+								country="us"
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/sports"
+						caseSensitive={false}
+						element={
+							<News
+								setProgress={setProgress}
+								key="sports"
+								pageSize={pageSize}
+								apiKey={apiKey}
+								category="sports"
+								language="en"
+								country="us"
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/technology"
+						caseSensitive={false}
+						element={
+							<News
+								setProgress={setProgress}
+								key="technology"
+								pageSize={pageSize}
+								apiKey={apiKey}
+								category="technology"
+								language="en"
+								country="us"
+							/>
+						}
+					/>
+				</Routes>
+
+				<Footer />
+			</div>
+		</BrowserRouter>
+	);
+};
+
+export default App;
